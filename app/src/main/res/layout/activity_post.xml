@@ -7,11 +7,18 @@
     android:orientation="vertical"
     tools:context=".PostActivity">
 
+    <ImageView
+        android:id="@+id/ImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_background"
+        />
+
     <EditText
         android:id="@+id/etname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="enter name"
+        android:hint="enter hero name"
         />
     <EditText
         android:id="@+id/etdesc"
@@ -24,6 +31,6 @@
         android:id="@+id/btnregister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="register"
+        android:text="add hero"
         />
 </LinearLayout>

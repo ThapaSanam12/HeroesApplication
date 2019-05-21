@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import api.Heroesapi;
 import model.Heroes;
 import retrofit2.Call;
@@ -43,7 +46,11 @@ private void register(){
         String name=etname.getText().toString();
         String desc=etdesc.getText().toString();
 
-    Heroes heroes=new Heroes( name, desc);
+    Map<String,String> map=new HashMap<>();
+    map.put("name",name);
+    map.put("desc",desc);
+
+
 
 
     Retrofit retrofit=new Retrofit.Builder()
@@ -51,11 +58,16 @@ private void register(){
             .addConverterFactory(GsonConverterFactory.create())
             .build();
     Heroesapi heroesapi=retrofit.create(Heroesapi.class);
+Call<Void>heroesCall=heroesapi.addHeroes(map);
 
-    Call<Void>voidCall=heroesapi.register(heroes);
-    voidCall.enqueue(new Callback<Void>() {
+    heroesCall.enqueue(new Callback<Void>() {
         @Override
         public void onResponse(Call<Void> call, Response<Void> response) {
+            if (!response.isSuccessful()) {
+                Toast.makeText(PostActivity.this, "code"+ response.code(), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             Toast.makeText(PostActivity.this, "register success", Toast.LENGTH_SHORT).show();
         }
 
