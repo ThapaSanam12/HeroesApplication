@@ -8,10 +8,11 @@
     tools:context=".PostActivity">
 
     <ImageView
-        android:id="@+id/ImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/ImageProfile"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:src="@drawable/ic_launcher_background"
+        android:layout_gravity="center"
         />
 
     <EditText

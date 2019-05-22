@@ -31,7 +31,7 @@ private TextView tvData;
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Heroesapi heroesapi=retrofit.create(Heroesapi.class);
-Call<List<Heroes>>listCall=heroesapi.getHero();
+Call<List<Heroes>>listCall=heroesapi.getHeroes();
 
 listCall.enqueue(new Callback<List<Heroes>>() {
     @Override
