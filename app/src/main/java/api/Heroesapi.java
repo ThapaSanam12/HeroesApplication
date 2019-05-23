@@ -17,8 +17,8 @@ public interface Heroesapi {
     Call<Void>register(@Body Heroes heroes);
 
 
-@GET("heroes")
-Call<List<Heroes>> getHeroes();
+    @GET("heroes")
+    Call<List<Heroes>> getHeroes();
 
     //field ko
     @FormUrlEncoded
@@ -28,4 +28,6 @@ Call<List<Heroes>> getHeroes();
     @FormUrlEncoded
     @POST("heroes")
     Call<Void>addHeroes(@FieldMap Map<String,String> map);
+
+
 }
